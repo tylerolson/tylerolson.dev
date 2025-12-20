@@ -1,4 +1,4 @@
-FROM node:24.12-alpine AS base
+FROM node:24-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
@@ -14,7 +14,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 COPY . ./
 RUN pnpm run build
 
-FROM gcr.io/distroless/nodejs24-debian12:latest
+FROM node:24-alpine
 WORKDIR /app
 
 COPY --from=prod-deps /app/node_modules ./node_modules
@@ -23,7 +23,7 @@ COPY --from=build /app/package.json ./package.json
 
 ENV NODE_ENV=production
 ENV PORT=3000
-ENV HOST=0.0.0.0
+ENV HOST=::
 EXPOSE 3000
 
 CMD ["build/index.js"]
