@@ -17,3 +17,4 @@ package
 **/.env
 dist
 *.md
+repos.json
