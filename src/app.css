@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap');
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/700.css';
+@import '@fontsource/outfit/300.css';
+@import '@fontsource/outfit/400.css';
+@import '@fontsource/outfit/600.css';
+@import '@fontsource/outfit/800.css';
 @import 'tailwindcss';
 
 @theme {
@@ -120,6 +125,7 @@
 		linear-gradient(90deg, theme('colors.cyber-border') 1px, transparent 1px);
 	background-size: 50px 50px;
 	animation: gridPulse 20s ease-in-out infinite;
+	will-change: opacity;
 }
 
 @utility scanline {

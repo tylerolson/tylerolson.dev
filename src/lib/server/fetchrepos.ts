@@ -1,17 +1,14 @@
 import { Octokit, type RestEndpointMethodTypes } from '@octokit/rest';
-import fs from 'fs/promises';
-import { env } from '$env/dynamic/private';
 import type { RepoData } from '$lib/types';
 
 type GithubRepo = RestEndpointMethodTypes['repos']['listForUser']['response']['data'][number];
 
 const octokit = new Octokit();
-const PATH = env.REPOS_SAVE_PATH === undefined ? 'repos.json' : env.REPOS_SAVE_PATH;
 
-let cachedRepos: RepoData[] | null = null;
-let uniqueLanguages: Set<string>;
-let totalStars: number;
-let totalForks: number;
+let cachedRepos: RepoData[] = [];
+let uniqueLanguages: Set<string> = new Set();
+let totalStars: number = 0;
+let totalForks: number = 0;
 
 export async function updateRepoList() {
 	console.log('Starting repo update');
@@ -38,7 +35,6 @@ export async function updateRepoList() {
 			open_issues_count: repo.open_issues_count ?? 0
 		}));
 
-		await fs.writeFile(PATH, JSON.stringify(repos, null, '\t'), 'utf8');
 		cachedRepos = repos;
 		uniqueLanguages = new Set(
 			repos
@@ -56,12 +52,9 @@ export async function updateRepoList() {
 	}
 }
 
-export async function getRepoList() {
-	if (cachedRepos === null) {
-		await updateRepoList();
-	}
+export function getRepoList() {
 	return {
-		repos: cachedRepos!,
+		repos: cachedRepos,
 		uniqueLanguages,
 		totalStars,
 		totalForks

@@ -3,25 +3,22 @@
 	import SectionHeader from '$lib/components/SectionHeader.svelte';
 	import BigCard from '$lib/components/BigCard.svelte';
 	import SmallCard from '$lib/components/SmallCard.svelte';
-	import type { RepoData } from '$lib/types';
+
+	import { flip } from 'svelte/animate';
+	import { fade } from 'svelte/transition';
 
 	let { data }: PageProps = $props();
 
 	let selectedFilter = $state('all');
-	let filteredRepos: RepoData[] = $state(data.repos);
+
+	let filteredRepos = $derived(
+		selectedFilter === 'all'
+			? data.repos
+			: data.repos.filter((repo) => repo.language === selectedFilter)
+	);
 
 	function filterRepos(language: string) {
-		if (selectedFilter == language) {
-			selectedFilter = 'all';
-		} else {
-			selectedFilter = language;
-		}
-
-		if (selectedFilter === 'all') {
-			filteredRepos = data.repos;
-		} else {
-			filteredRepos = data.repos.filter((repo) => repo.language === language);
-		}
+		selectedFilter = selectedFilter === language ? 'all' : language;
 	}
 </script>
 
@@ -158,7 +155,9 @@
 
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{#each filteredRepos as repo (repo.name)}
-					<SmallCard {repo} />
+					<div in:fade animate:flip={{ duration: 200 }}>
+						<SmallCard {repo} />
+					</div>
 				{/each}
 			</div>
 		</section>
@@ -168,7 +167,7 @@
 		>
 			<div class="mb-6 flex flex-wrap justify-center gap-8">
 				<a
-					href="https://github.com/yourusername"
+					href="https://github.com/tylerolson"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-cyber-text-secondary transition-colors duration-300 hover:text-cyber-accent-primary"
