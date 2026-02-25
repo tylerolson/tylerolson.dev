@@ -121,7 +121,7 @@
 
 			<div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
 				<BigCard
-					title="Warframe Planium Efficiency Caluclator"
+					title="Warframe Platinum Efficiency Calculator"
 					description="Calculate the most profitable use of standing in Warframe based on real-time market data. Helps players optimize their resource conversion for maximum platinum value."
 					tags={['Go', 'Svelte', 'API']}
 					url="https://wfm.tylerolson.dev/"
