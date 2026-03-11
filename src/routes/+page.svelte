@@ -41,9 +41,6 @@
 							Tyler Olson
 						</h1>
 					</div>
-					<p class="mt-4 text-xl font-light text-cyber-text-secondary md:text-2xl">
-						Graduate from University of Nevada, Reno
-					</p>
 				</div>
 			</div>
 
@@ -116,7 +113,41 @@
 	</header>
 
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-		<section class="my-20 fade-in-up-2">
+		<section class="my-0 fade-in-up-2">
+			<SectionHeader title="// About" />
+
+			<p>
+				I&apos;m a recent Computer Science &amp; Engineering graduate from the University of Nevada,
+				Reno, with experience building backend systems and fullstack apps. I&apos;ve been
+				programming since elementary school where I started creating Minecraft mods in Java and fell
+				in love with the process of problem solving.
+			</p>
+
+			<br />
+			<a href="/resume" target="_blank" rel="noopener noreferrer">
+				<button
+					class="cursor-pointer border border-cyber-border bg-cyber-bg-secondary px-4 py-2 font-mono text-sm tracking-wide text-cyber-text-secondary uppercase transition-all duration-300 hover:border-cyber-accent-primary hover:text-cyber-accent-primary"
+				>
+					View Resume
+				</button>
+			</a>
+			<a href="https://github.com/tylerolson" target="_blank" rel="noopener noreferrer">
+				<button
+					class="ml-2 cursor-pointer border border-cyber-border bg-cyber-bg-secondary px-4 py-2 font-mono text-sm tracking-wide text-cyber-text-secondary uppercase transition-all duration-300 hover:border-cyber-accent-primary hover:text-cyber-accent-primary"
+				>
+					GitHub
+				</button>
+			</a>
+			<a href="https://www.linkedin.com/in/tylerolson-/" target="_blank" rel="noopener noreferrer">
+				<button
+					class="ml-2 cursor-pointer border border-cyber-border bg-cyber-bg-secondary px-4 py-2 font-mono text-sm tracking-wide text-cyber-text-secondary uppercase transition-all duration-300 hover:border-cyber-accent-primary hover:text-cyber-accent-primary"
+				>
+					LinkedIn
+				</button>
+			</a>
+		</section>
+
+		<section class="my-20 fade-in-up-3">
 			<SectionHeader title="// Deployed Projects" />
 
 			<div class="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -135,18 +166,22 @@
 			</div>
 		</section>
 
-		<section class="my-20 fade-in-up-3">
+		<section class="my-20 fade-in-up-4">
 			<SectionHeader title="// All Projects" />
 
 			<div class="mb-8 flex flex-wrap gap-4">
 				{#each data.uniqueLanguages as language}
 					<button
 						onclick={() => filterRepos(language)}
-						class="cursor-pointer border border-cyber-border bg-cyber-bg-secondary px-4 py-2 font-mono text-sm tracking-wide text-cyber-text-secondary uppercase transition-all duration-300 hover:border-cyber-accent-primary hover:text-cyber-accent-primary"
-						class:bg-cyber-accent-primary={selectedFilter === language}
-						class:text-cyber-bg-primary={selectedFilter === language}
-						class:border-cyber-accent-primary={selectedFilter === language}
-						class:shadow-glow={selectedFilter === language}
+						class={[
+							'cursor-pointer border px-4 py-2 font-mono text-sm tracking-wide uppercase transition-all duration-300',
+							{
+								'border-cyber-accent-primary bg-cyber-accent-primary text-cyber-bg-primary shadow-glow':
+									selectedFilter === language,
+								'border-cyber-border bg-cyber-bg-secondary text-cyber-text-secondary hover:border-cyber-accent-primary hover:text-cyber-accent-primary':
+									selectedFilter !== language
+							}
+						]}
 					>
 						{language}
 					</button>
