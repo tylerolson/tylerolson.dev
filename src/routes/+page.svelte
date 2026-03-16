@@ -69,7 +69,7 @@
 					></div>
 					<span
 						class="relative z-10 block font-mono text-3xl font-bold text-cyber-accent-primary md:text-4xl"
-						>{data.uniqueLanguages.size}</span
+						>{data.stats.uniqueLanguages.length}</span
 					>
 					<span
 						class="relative z-10 text-xs tracking-wider text-cyber-text-tertiary uppercase md:text-sm"
@@ -85,7 +85,7 @@
 					></div>
 					<span
 						class="relative z-10 block font-mono text-3xl font-bold text-cyber-accent-primary md:text-4xl"
-						>{data.totalStars}</span
+						>{data.stats.totalStars}</span
 					>
 					<span
 						class="relative z-10 text-xs tracking-wider text-cyber-text-tertiary uppercase md:text-sm"
@@ -101,7 +101,7 @@
 					></div>
 					<span
 						class="relative z-10 block font-mono text-3xl font-bold text-cyber-accent-primary md:text-4xl"
-						>{data.totalForks}</span
+						>{data.stats.totalForks}</span
 					>
 					<span
 						class="relative z-10 text-xs tracking-wider text-cyber-text-tertiary uppercase md:text-sm"
@@ -170,7 +170,7 @@
 			<SectionHeader title="// All Projects" />
 
 			<div class="mb-8 flex flex-wrap gap-4">
-				{#each data.uniqueLanguages as language}
+				{#each data.stats.uniqueLanguages as language}
 					<button
 						onclick={() => filterRepos(language)}
 						class={[
@@ -201,22 +201,11 @@
 			class="mt-24 fade-in-up-4 border-t border-cyber-border py-12 text-center font-mono text-sm text-cyber-text-tertiary"
 		>
 			<div class="mb-6 flex flex-wrap justify-center gap-8">
-				<a
-					href="https://github.com/tylerolson"
-					target="_blank"
-					rel="noopener noreferrer"
+				<span
 					class="text-cyber-text-secondary transition-colors duration-300 hover:text-cyber-accent-primary"
 				>
-					GitHub
-				</a>
-				<a
-					href="https://www.linkedin.com/in/tylerolson-/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-cyber-text-secondary transition-colors duration-300 hover:text-cyber-accent-primary"
-				>
-					LinkedIn
-				</a>
+					cached {data.cacheInfo.age}, refresh in {data.cacheInfo.nextRefresh}
+				</span>
 			</div>
 		</footer>
 	</div>
