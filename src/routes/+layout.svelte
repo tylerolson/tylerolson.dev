@@ -7,6 +7,4 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<div class="bg-grid"></div>
-<div class="scanline"></div>
 {@render children()}

@@ -6,29 +6,27 @@
 </script>
 
 <div
-	class="flex h-full flex-col border border-cyber-border bg-cyber-bg-secondary p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cyber-accent-secondary"
+	class="flex h-full flex-col rounded-lg border border-ctp-surface0 bg-ctp-mantle p-6 transition-all duration-300 hover:-translate-y-1 hover:border-ctp-lavender"
 >
 	<a
 		href={repo.html_url}
 		target="_blank"
 		rel="noopener noreferrer"
-		class="mb-2 inline-block font-mono text-lg text-cyber-accent-secondary transition-colors duration-300 hover:text-cyber-accent-primary"
+		class="mb-2 inline-block font-mono text-lg text-ctp-blue transition-colors duration-300 hover:text-ctp-green"
 	>
 		{repo.name}
 		{#if repo.archived}
-			<span
-				class="ml-2 border border-cyber-border bg-cyber-bg-tertiary px-2 py-1 text-[0.7rem] text-cyber-text-tertiary uppercase"
-			>
+			<span class="rounded bg-ctp-base px-3 py-1 font-mono text-xs tracking-wide text-ctp-lavender">
 				Archived
 			</span>
 		{/if}
 	</a>
 
-	<p class="mb-4 flex-grow text-sm text-cyber-text-secondary">
+	<p class="mb-4 grow text-sm text-ctp-text">
 		{repo.description || 'No description available'}
 	</p>
 
-	<div class="flex gap-6 font-mono text-xs text-cyber-text-tertiary">
+	<div class="flex gap-6 font-mono text-xs text-ctp-subtext0">
 		{#if repo.language}
 			<span class="flex items-center gap-2">
 				<span

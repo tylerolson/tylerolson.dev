@@ -6,6 +6,7 @@
 
 	import { flip } from 'svelte/animate';
 	import { fade } from 'svelte/transition';
+	import Button from '$lib/components/Button.svelte';
 
 	let { data }: PageProps = $props();
 
@@ -26,17 +27,20 @@
 	<title>Tyler Olson</title>
 </svelte:head>
 
-<div class="relative z-10">
+<div>
 	<header class="relative py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="flex fade-in-up flex-wrap items-start justify-between gap-12">
 				<div class="min-w-75 flex-1">
-					<div class="mb-2 animate-blink font-mono text-lg text-cyber-accent-primary md:text-xl">
-						$ whoami
+					<div class="mb-2 font-mono text-lg text-ctp-green md:text-xl">
+						$
+						<span class="text-ctp-blue">whoami</span>
+						<span class="animate-blink text-ctp-rosewater">&block;</span>
 					</div>
+					<br />
 					<div class="relative inline-block">
 						<h1
-							class="animate-text-glow text-gradient font-mono text-5xl leading-none font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+							class=" font-mono text-5xl leading-none font-extrabold tracking-tight text-ctp-lavender"
 						>
 							Tyler Olson
 						</h1>
@@ -44,69 +48,32 @@
 				</div>
 			</div>
 
-			<div class="mt-12 grid fade-in-up-1 grid-cols-2 gap-6 md:grid-cols-4">
-				<div
-					class="group relative overflow-hidden border border-l-[3px] border-cyber-border border-l-cyber-accent-primary bg-cyber-bg-secondary p-6 transition-all duration-300 hover:translate-x-1 hover:border-l-cyber-accent-secondary hover:shadow-glow"
-				>
-					<div
-						class="absolute inset-0 bg-linear-to-br from-transparent to-cyber-accent-primary/5"
-					></div>
-					<span
-						class="relative z-10 block font-mono text-3xl font-bold text-cyber-accent-primary md:text-4xl"
-						>{data.repos.length}</span
-					>
-					<span
-						class="relative z-10 text-xs tracking-wider text-cyber-text-tertiary uppercase md:text-sm"
-						>Repositories</span
-					>
+			<div
+				class="mt-8 flex fade-in-up-1 flex-wrap gap-2 font-mono text-xs transition-all md:text-sm"
+			>
+				<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
+					<span class="bg-ctp-surface1 px-2 py-1.5 text-ctp-subtext0">repositories</span>
+					<span class="bg-ctp-flamingo px-2 py-1.5 font-semibold text-ctp-crust">
+						{data.repos.length}
+					</span>
 				</div>
-
-				<div
-					class="group relative overflow-hidden border border-l-[3px] border-cyber-border border-l-cyber-accent-primary bg-cyber-bg-secondary p-6 transition-all duration-300 hover:translate-x-1 hover:border-l-cyber-accent-secondary hover:shadow-glow"
-				>
-					<div
-						class="absolute inset-0 bg-linear-to-br from-transparent to-cyber-accent-primary/5"
-					></div>
-					<span
-						class="relative z-10 block font-mono text-3xl font-bold text-cyber-accent-primary md:text-4xl"
-						>{data.stats.uniqueLanguages.length}</span
-					>
-					<span
-						class="relative z-10 text-xs tracking-wider text-cyber-text-tertiary uppercase md:text-sm"
-						>Languages</span
-					>
+				<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
+					<span class="bg-ctp-surface1 px-2 py-1.5 text-ctp-subtext0">languages</span>
+					<span class="bg-ctp-blue px-2 py-1.5 font-semibold text-ctp-crust">
+						{data.stats.uniqueLanguages.length}
+					</span>
 				</div>
-
-				<div
-					class="group relative overflow-hidden border border-l-[3px] border-cyber-border border-l-cyber-accent-primary bg-cyber-bg-secondary p-6 transition-all duration-300 hover:translate-x-1 hover:border-l-cyber-accent-secondary hover:shadow-glow"
-				>
-					<div
-						class="absolute inset-0 bg-linear-to-br from-transparent to-cyber-accent-primary/5"
-					></div>
-					<span
-						class="relative z-10 block font-mono text-3xl font-bold text-cyber-accent-primary md:text-4xl"
-						>{data.stats.totalStars}</span
-					>
-					<span
-						class="relative z-10 text-xs tracking-wider text-cyber-text-tertiary uppercase md:text-sm"
-						>Stars</span
-					>
+				<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
+					<span class="bg-ctp-surface1 px-2 py-1.5 text-ctp-subtext0">stars</span>
+					<span class="bg-ctp-peach px-2 py-1.5 font-semibold text-ctp-crust">
+						{data.stats.totalStars}
+					</span>
 				</div>
-
-				<div
-					class="group relative overflow-hidden border border-l-[3px] border-cyber-border border-l-cyber-accent-primary bg-cyber-bg-secondary p-6 transition-all duration-300 hover:translate-x-1 hover:border-l-cyber-accent-secondary hover:shadow-glow"
-				>
-					<div
-						class="absolute inset-0 bg-linear-to-br from-transparent to-cyber-accent-primary/5"
-					></div>
-					<span
-						class="relative z-10 block font-mono text-3xl font-bold text-cyber-accent-primary md:text-4xl"
-						>{data.stats.totalForks}</span
-					>
-					<span
-						class="relative z-10 text-xs tracking-wider text-cyber-text-tertiary uppercase md:text-sm"
-						>Forks</span
-					>
+				<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
+					<span class="bg-ctp-surface1 px-2 py-1.5 text-ctp-subtext0">forks</span>
+					<span class="bg-ctp-green px-2 py-1.5 font-semibold text-ctp-crust">
+						{data.stats.totalForks}
+					</span>
 				</div>
 			</div>
 		</div>
@@ -124,26 +91,25 @@
 			</p>
 
 			<br />
-			<a href="/resume" target="_blank" rel="noopener noreferrer">
-				<button
-					class="cursor-pointer border border-cyber-border bg-cyber-bg-secondary px-4 py-2 font-mono text-sm tracking-wide text-cyber-text-secondary uppercase transition-all duration-300 hover:border-cyber-accent-primary hover:text-cyber-accent-primary"
-				>
-					View Resume
-				</button>
+
+			<a class="mr-2" href="/resume" target="_blank" rel="noopener noreferrer">
+				<Button variant="primary">View Resume</Button>
 			</a>
-			<a href="https://github.com/tylerolson" target="_blank" rel="noopener noreferrer">
-				<button
-					class="ml-2 cursor-pointer border border-cyber-border bg-cyber-bg-secondary px-4 py-2 font-mono text-sm tracking-wide text-cyber-text-secondary uppercase transition-all duration-300 hover:border-cyber-accent-primary hover:text-cyber-accent-primary"
-				>
-					GitHub
-				</button>
+			<a
+				class="mr-2"
+				href="https://github.com/tylerolson"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<Button variant="secondary">GitHub</Button>
 			</a>
-			<a href="https://www.linkedin.com/in/tylerolson-/" target="_blank" rel="noopener noreferrer">
-				<button
-					class="ml-2 cursor-pointer border border-cyber-border bg-cyber-bg-secondary px-4 py-2 font-mono text-sm tracking-wide text-cyber-text-secondary uppercase transition-all duration-300 hover:border-cyber-accent-primary hover:text-cyber-accent-primary"
-				>
-					LinkedIn
-				</button>
+			<a
+				class="mr-2"
+				href="https://www.linkedin.com/in/tylerolson-/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<Button variant="secondary">LinkedIn</Button>
 			</a>
 		</section>
 
@@ -171,20 +137,12 @@
 
 			<div class="mb-8 flex flex-wrap gap-4">
 				{#each data.stats.uniqueLanguages as language}
-					<button
+					<Button
+						variant={selectedFilter === language ? 'primary' : 'secondary'}
 						onclick={() => filterRepos(language)}
-						class={[
-							'cursor-pointer border px-4 py-2 font-mono text-sm tracking-wide uppercase transition-all duration-300',
-							{
-								'border-cyber-accent-primary bg-cyber-accent-primary text-cyber-bg-primary shadow-glow':
-									selectedFilter === language,
-								'border-cyber-border bg-cyber-bg-secondary text-cyber-text-secondary hover:border-cyber-accent-primary hover:text-cyber-accent-primary':
-									selectedFilter !== language
-							}
-						]}
 					>
 						{language}
-					</button>
+					</Button>
 				{/each}
 			</div>
 
@@ -196,17 +154,13 @@
 				{/each}
 			</div>
 		</section>
-
-		<footer
-			class="mt-24 fade-in-up-4 border-t border-cyber-border py-12 text-center font-mono text-sm text-cyber-text-tertiary"
-		>
-			<div class="mb-6 flex flex-wrap justify-center gap-8">
-				<span
-					class="text-cyber-text-secondary transition-colors duration-300 hover:text-cyber-accent-primary"
-				>
-					cached {data.cacheInfo.age}, refresh in {data.cacheInfo.nextRefresh}
-				</span>
-			</div>
-		</footer>
 	</div>
+
+	<footer
+		class="flex w-full fade-in-up-4 flex-wrap justify-center bg-ctp-mantle py-16 text-center font-mono text-sm"
+	>
+		<span class="text-ctp-subtext0 transition-colors duration-300 hover:text-ctp-lavender">
+			cached {data.cacheInfo.age}, refresh in {data.cacheInfo.nextRefresh}
+		</span>
+	</footer>
 </div>

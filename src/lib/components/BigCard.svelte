@@ -6,31 +6,28 @@
 </script>
 
 <div
-	class="group relative overflow-hidden border border-cyber-border bg-cyber-bg-secondary p-8 transition-all duration-300 hover:-translate-y-2 hover:border-cyber-accent-primary hover:shadow-glow"
+	class="relative overflow-hidden rounded-xl border border-ctp-surface0 bg-ctp-mantle p-8 transition-all duration-300 hover:-translate-y-1 hover:border-ctp-lavender"
 >
-	<div
-		class="absolute top-0 left-0 h-0 w-1 bg-linear-to-b from-cyber-accent-primary to-cyber-accent-secondary transition-all duration-300 group-hover:h-full"
-	></div>
-
 	<div class="mb-4 flex items-start justify-between">
-		<h3 class="text-2xl font-semibold text-cyber-text-primary">{title}</h3>
+		<h3 class="text-2xl font-semibold text-ctp-subtext0">{title}</h3>
 		<a
 			href={url}
-			class="text-2xl text-cyber-accent-secondary transition-all duration-300 hover:scale-110 hover:text-cyber-accent-primary"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="text-2xl text-ctp-subtext0 transition-all duration-300 hover:scale-110 hover:text-ctp-lavender"
+			aria-label="Visit {title}"
 		>
 			→
 		</a>
 	</div>
 
-	<p class="mb-6 leading-relaxed text-cyber-text-secondary">
+	<p class="mb-6 leading-relaxed text-ctp-text">
 		{description}
 	</p>
 
 	<div class="flex flex-wrap gap-2">
 		{#each tags as tag}
-			<span
-				class="border border-cyber-border bg-cyber-bg-tertiary px-3 py-1 font-mono text-xs tracking-wide text-cyber-accent-primary uppercase"
-			>
+			<span class="rounded bg-ctp-base px-3 py-1 font-mono text-xs tracking-wide text-ctp-lavender">
 				{tag}
 			</span>
 		{/each}
