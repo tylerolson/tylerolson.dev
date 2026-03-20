@@ -1,8 +1,11 @@
 <script lang="ts">
-	export let title: string;
-	export let description: string;
-	export let tags: string[];
-	export let url: string;
+	interface Props {
+		title: string;
+		description: string;
+		tags: string[];
+		url: string;
+	}
+	let { title, description, tags, url }: Props = $props();
 </script>
 
 <div
@@ -20,11 +23,7 @@
 			→
 		</a>
 	</div>
-
-	<p class="mb-6 leading-relaxed text-ctp-text">
-		{description}
-	</p>
-
+	<p class="mb-6 leading-relaxed text-ctp-text">{description}</p>
 	<div class="flex flex-wrap gap-2">
 		{#each tags as tag}
 			<span class="rounded bg-ctp-base px-3 py-1 font-mono text-xs tracking-wide text-ctp-lavender">

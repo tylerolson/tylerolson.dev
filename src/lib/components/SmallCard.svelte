@@ -2,7 +2,11 @@
 	import type { RepoData } from '$lib/types';
 	import { languageColors } from '$lib/types';
 
-	export let repo: RepoData;
+	interface Props {
+		repo: RepoData;
+	}
+
+	let { repo }: Props = $props();
 </script>
 
 <div

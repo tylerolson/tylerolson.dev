@@ -3,11 +3,13 @@
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
 	type Variant = 'primary' | 'secondary';
-	let {
-		variant,
-		children,
-		...rest
-	}: { variant: Variant; children?: Snippet } & HTMLButtonAttributes = $props();
+
+	interface Props {
+		variant: Variant;
+		children?: Snippet;
+	}
+
+	let { variant, children, ...rest }: Props & HTMLButtonAttributes = $props();
 
 	const styles = {
 		primary:
