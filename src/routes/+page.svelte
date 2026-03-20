@@ -92,25 +92,21 @@
 
 			<br />
 
-			<a class="mr-2" href="/resume" target="_blank" rel="noopener noreferrer">
-				<Button variant="primary">View Resume</Button>
-			</a>
-			<a
-				class="mr-2"
-				href="https://github.com/tylerolson"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<Button variant="secondary">GitHub</Button>
-			</a>
-			<a
-				class="mr-2"
-				href="https://www.linkedin.com/in/tylerolson-/"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<Button variant="secondary">LinkedIn</Button>
-			</a>
+			<div class="mt-8 flex fade-in-up-1 flex-wrap gap-2 font-mono text-sm md:text-base">
+				<a href="/resume" target="_blank" rel="noopener noreferrer">
+					<Button variant="primary">View Resume</Button>
+				</a>
+				<a href="https://github.com/tylerolson" target="_blank" rel="noopener noreferrer">
+					<Button variant="secondary">GitHub</Button>
+				</a>
+				<a
+					href="https://www.linkedin.com/in/tylerolson-/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<Button variant="secondary">LinkedIn</Button>
+				</a>
+			</div>
 		</section>
 
 		<section class="my-20 fade-in-up-3">
@@ -135,7 +131,7 @@
 		<section class="my-20 fade-in-up-4">
 			<SectionHeader title="// All Projects" />
 
-			<div class="mb-8 flex flex-wrap gap-4">
+			<div class="mb-8 flex flex-wrap gap-4 text-sm">
 				{#each data.stats.uniqueLanguages as language}
 					<Button
 						variant={selectedFilter === language ? 'primary' : 'secondary'}
