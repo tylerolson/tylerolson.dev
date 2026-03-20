@@ -69,7 +69,7 @@
 
 @layer base {
 	html {
-		@apply bg-ctp-base;
+		@apply bg-ctp-mantle;
 	}
 	body {
 		@apply bg-ctp-base font-sans text-ctp-text;
