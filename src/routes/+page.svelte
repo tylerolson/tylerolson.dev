@@ -51,30 +51,18 @@
 			<div
 				class="mt-8 flex fade-in-up-1 flex-wrap gap-2 font-mono text-xs transition-all md:text-sm"
 			>
-				<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
-					<span class="bg-ctp-surface1 px-2 py-1.5 text-ctp-subtext0">repositories</span>
-					<span class="bg-ctp-flamingo px-2 py-1.5 font-semibold text-ctp-crust">
-						{data.repos.length}
-					</span>
-				</div>
-				<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
-					<span class="bg-ctp-surface1 px-2 py-1.5 text-ctp-subtext0">languages</span>
-					<span class="bg-ctp-blue px-2 py-1.5 font-semibold text-ctp-crust">
-						{data.stats.uniqueLanguages.length}
-					</span>
-				</div>
-				<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
-					<span class="bg-ctp-surface1 px-2 py-1.5 text-ctp-subtext0">stars</span>
-					<span class="bg-ctp-peach px-2 py-1.5 font-semibold text-ctp-crust">
-						{data.stats.totalStars}
-					</span>
-				</div>
-				<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
-					<span class="bg-ctp-surface1 px-2 py-1.5 text-ctp-subtext0">forks</span>
-					<span class="bg-ctp-green px-2 py-1.5 font-semibold text-ctp-crust">
-						{data.stats.totalForks}
-					</span>
-				</div>
+				{#snippet pill(label: string, pilldata: any, pillcolor: string)}
+					<div class="inline-flex overflow-hidden rounded duration-300 hover:-translate-y-1">
+						<span class="bg-ctp-surface0 px-2 py-1.5 text-ctp-subtext1">{label}</span>
+						<span class="{pillcolor} px-2 py-1.5 font-semibold text-ctp-crust">
+							{pilldata}
+						</span>
+					</div>
+				{/snippet}
+				{@render pill('repositories', data.repos.length, 'bg-ctp-flamingo')}
+				{@render pill('languages', data.stats.uniqueLanguages.length, 'bg-ctp-blue')}
+				{@render pill('stars', data.stats.totalStars, 'bg-ctp-peach')}
+				{@render pill('forks', data.stats.totalForks, 'bg-ctp-green')}
 			</div>
 		</div>
 	</header>
