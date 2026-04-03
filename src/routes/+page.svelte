@@ -7,6 +7,7 @@
 	import { flip } from 'svelte/animate';
 	import { fade } from 'svelte/transition';
 	import Button from '$lib/components/Button.svelte';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
 	let { data }: PageProps = $props();
 
@@ -29,6 +30,9 @@
 
 <div>
 	<header class="relative py-16 md:py-24">
+		<div class="absolute top-4 right-4 transition-[right,top] md:top-6 md:right-8">
+			<ThemeToggle />
+		</div>
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="flex fade-in-up flex-wrap items-start justify-between gap-12">
 				<div class="min-w-75 flex-1">

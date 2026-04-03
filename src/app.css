@@ -75,3 +75,10 @@
 		@apply bg-ctp-base font-sans text-ctp-text;
 	}
 }
+
+.theme-transition * {
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease,
+		border-color 0.2s ease !important;
+}
